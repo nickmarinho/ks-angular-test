@@ -1,0 +1,25 @@
+{
+  "name": "ks-angular-test",
+  "version": "1.0.0",
+  "description": "Angular 4 test to Keep It Simple",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^1.9.1",
+    "popper.js": "^1.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickmarinho/ks-angular-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickmarinho/ks-angular-test/issues"
+  },
+  "homepage": "https://github.com/nickmarinho/ks-angular-test#readme"
+}
