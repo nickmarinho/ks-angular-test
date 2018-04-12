@@ -4,7 +4,7 @@
   "description": "Angular 4 test to Keep It Simple",
   "main": "index.js",
   "dependencies": {
-    "jquery": "^1.9.1",
+    "jquery": "^3.0.0",
     "popper.js": "^1.14.0"
   },
   "devDependencies": {},
