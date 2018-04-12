@@ -6,6 +6,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
+import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [
-    UsersService
+    UsersService,
+    Http,
+    ConnectionBackend,
+    RequestOptions
   ],
   bootstrap: [AppComponent]
 })
