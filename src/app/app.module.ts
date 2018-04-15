@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { UsersService } from './service/users.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
-import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
+import { UsersService } from './service/users.service';
+import { Http, Headers, ConnectionBackend, RequestOptions } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -16,15 +17,11 @@ import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
     BrowserModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    HttpClientModule
+    ModalModule.forRoot()
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [
-    UsersService,
-    Http,
-    ConnectionBackend,
-    RequestOptions
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

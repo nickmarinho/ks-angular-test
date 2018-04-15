@@ -9,11 +9,8 @@ import { UsersService } from './service/users.service';
     './app.component.css']
 })
 export class AppComponent {
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService) { }
 
-  }
-
-  title = 'app';
   users = this.usersService.getUsers();
 
 }
