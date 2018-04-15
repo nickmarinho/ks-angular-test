@@ -1,7 +1,7 @@
 import { UsersService } from '../service/users.service';
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../model/users.model';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -9,13 +9,15 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
+    user: Users;
+    userForm: FormGroup;
+    errorsMessage: string;
+    successMessage: string;
+
     constructor(
         private usersService: UsersService,
         private formBuilder: FormBuilder
     ) { }
-
-    user: Users;
-    userForm: FormGroup;
 
     ngOnInit() {
         this.criarFormGroup();
@@ -23,11 +25,11 @@ export class UserFormComponent implements OnInit {
 
     private criarFormGroup() {
         this.userForm = this.formBuilder.group({});
-        this.userForm.addControl('name', new FormControl('', null));
-        this.userForm.addControl('email', new FormControl('', null));
+        this.userForm.addControl('name', new FormControl('', Validators.required));
+        this.userForm.addControl('email', new FormControl('', Validators.required));
         this.userForm.addControl('homePhone', new FormControl('', null));
         this.userForm.addControl('cellPhone', new FormControl('', null));
-        this.userForm.addControl('password', new FormControl('', null));
+        this.userForm.addControl('password', new FormControl('', Validators.required));
     }
 
     public resetForm() {
@@ -35,6 +37,11 @@ export class UserFormComponent implements OnInit {
     }
 
     public saveUser() {
-        this.usersService.addUpdateUser(this.user);
+        if (this.user.homePhone === '' && this.user.cellPhone === '') {
+            this.errorsMessage = 'At last one telephone number is required';
+        } else {
+            this.usersService.addUpdateUser(this.user);
+            this.successMessage = 'User saved successfully!';
+        }
     }
 }

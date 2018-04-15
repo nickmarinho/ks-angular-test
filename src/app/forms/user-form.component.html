@@ -1,4 +1,4 @@
-<form [formGroup]="itemForm" novalidate class="form-horizontal">
+<form [formGroup]="userForm" novalidate class="form-horizontal">
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Name</label>
         <div class="col-sm-6">
@@ -14,7 +14,7 @@
     <div class="form-group">
         <label for="homePhone" class="col-sm-3 control-label">Home Phone</label>
         <div class="col-sm-6">
-            <input type="text" id="homePhone" class="form-control" [(ngModel)]="user.email" />
+            <input type="text" id="homePhone" class="form-control" [(ngModel)]="user.homePhone" />
         </div>
     </div>
     <div class="form-group">
@@ -29,6 +29,13 @@
             <input type="text" id="password" class="form-control" [(ngModel)]="user.password" />
         </div>
     </div>
+
+    <ng-container *ngIf="successMessage">
+        <p class="successMessage"><strong>{{ successMessage }}</strong></p>
+    </ng-container>
+    <ng-container *ngIf="errorsMessage">
+        <p class="error"><strong>Error: </strong>{{ errorsMessage }}</p>
+    </ng-container>
 
     <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3"  (click)="saveUser()" />
     <input type="reset" value="Reset" (click)="resetForm()" />

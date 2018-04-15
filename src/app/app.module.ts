@@ -19,7 +19,8 @@ import { UserFormComponent } from './forms/user-form.component';
     BrowserModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FormsModule
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [
