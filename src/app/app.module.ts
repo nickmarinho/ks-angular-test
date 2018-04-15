@@ -8,10 +8,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './service/users.service';
 import { Http, Headers, ConnectionBackend, RequestOptions } from '@angular/http';
+import { UserFormComponent } from './forms/user-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,11 @@
 export class Users {
-    id: number;
-
-    nome: string;
+    name: string;
 
     email: string;
 
-    telefoneResidencial: string;
+    homePhone: string;
 
-    telefoneCelular: string;
+    cellPhone: string;
 
-    senha: string;
+    password: string;
 }

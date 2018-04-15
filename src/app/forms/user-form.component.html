@@ -1,0 +1,35 @@
+<form [formGroup]="itemForm" novalidate class="form-horizontal">
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" id="email" class="form-control" [(ngModel)]="user.email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="homePhone" class="col-sm-3 control-label">Home Phone</label>
+        <div class="col-sm-6">
+            <input type="text" id="homePhone" class="form-control" [(ngModel)]="user.email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cellPhone" class="col-sm-3 control-label">Cell Phone</label>
+        <div class="col-sm-6">
+            <input type="text" id="cellPhone" class="form-control" [(ngModel)]="user.cellPhone" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-6">
+            <input type="text" id="password" class="form-control" [(ngModel)]="user.password" />
+        </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3"  (click)="saveUser()" />
+    <input type="reset" value="Reset" (click)="resetForm()" />
+</form>
