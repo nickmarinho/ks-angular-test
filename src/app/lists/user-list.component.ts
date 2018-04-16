@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { UsersService } from './../service/users.service';
 import { Users } from './../model/users.model';
 
@@ -10,7 +10,8 @@ import { Users } from './../model/users.model';
 export class UserListComponent implements OnInit, OnChanges {
   constructor(private usersService: UsersService) { }
 
-  users;
+  @Input()
+    users;
 
   ngOnInit() {
     this.users = JSON.parse(

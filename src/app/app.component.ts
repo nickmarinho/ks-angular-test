@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() { }
 
+  users;
+
+  updateUserList(users) {
+    this.users = users;
+  }
 }

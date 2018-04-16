@@ -1,5 +1,5 @@
 import { UsersService } from '../service/users.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Users } from '../model/users.model';
 import { FormGroup, Validators, FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -13,6 +13,9 @@ export class UserFormComponent implements OnInit {
     userForm: FormGroup;
     errorsMessage: string;
     successMessage: string;
+
+    @Output()
+    updateUserListEmitter: EventEmitter<string> = new EventEmitter();
 
     constructor(
         private usersService: UsersService,
