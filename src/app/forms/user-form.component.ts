@@ -54,6 +54,7 @@ export class UserFormComponent implements OnInit {
             this.usersService.addUpdateUser(this.user);
             this.successMessage = 'User saved successfully!';
             this.updateUserListEmitter.emit();
+            this.resetForm();
         }
     }
 
