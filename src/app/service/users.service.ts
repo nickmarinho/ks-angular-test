@@ -29,4 +29,8 @@ export class UsersService {
     return sessionStorage.setItem('users', JSON.stringify(users));
   }
 
+  public clearUserList() {
+    sessionStorage.clear();
+  }
+
 }

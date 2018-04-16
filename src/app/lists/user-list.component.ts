@@ -11,7 +11,7 @@ export class UserListComponent implements OnInit, OnChanges {
   constructor(private usersService: UsersService) { }
 
   @Input()
-    users;
+    users: Users;
 
   ngOnInit() {
     this.users = JSON.parse(

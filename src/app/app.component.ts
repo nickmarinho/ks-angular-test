@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Users } from './model/users.model';
+import { UsersService } from './service/users.service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
-  users;
+  users: Users;
 
   updateUserList(users) {
-    this.users = users;
+    this.users = JSON.parse(
+      JSON.parse(
+        this.usersService.getUsers()
+      )
+    );
   }
 }

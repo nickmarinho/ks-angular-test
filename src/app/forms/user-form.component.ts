@@ -38,16 +38,34 @@ export class UserFormComponent implements OnInit {
 
     public resetForm() {
         this.user = new Users();
+        this.errorsMessage = '';
+        this.successMessage = '';
+    }
+
+    public clearSessionList() {
+        this.usersService.clearUserList();
+        this.updateUserListEmitter.emit();
     }
 
     public saveUser() {
-        if (!this.user.homePhone === undefined && !this.user.cellPhone === undefined) {
-            if (this.user.homePhone === '' && this.user.cellPhone === '') {
-                this.errorsMessage = 'At last one telephone number is required';
-            }
+        if (this.checkUserDataError()) {
+            this.errorsMessage = 'At last one telephone number is required';
         } else {
             this.usersService.addUpdateUser(this.user);
             this.successMessage = 'User saved successfully!';
+            this.updateUserListEmitter.emit();
         }
+    }
+
+    public checkUserDataError() {
+        let errors = 0;
+
+        if (this.user.homePhone === undefined && this.user.cellPhone === undefined) {
+            errors++;
+        } else if (this.user.homePhone === '' && this.user.cellPhone === '') {
+            errors++;
+        }
+
+        return errors;
     }
 }
