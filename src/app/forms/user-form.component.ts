@@ -24,6 +24,7 @@ export class UserFormComponent implements OnInit {
     }
 
     private criarFormGroup() {
+        this.user = new Users();
         this.userForm = this.formBuilder.group({});
         this.userForm.addControl('name', new FormControl('', Validators.required));
         this.userForm.addControl('email', new FormControl('', Validators.required));
@@ -37,13 +38,15 @@ export class UserFormComponent implements OnInit {
     }
 
     public saveUser() {
-        // if (this.user.homePhone === '' && this.user.cellPhone === '') {
-        //     this.errorsMessage = 'At last one telephone number is required';
-        // } else {
-            console.log('this.user', this.user);
+        console.log('this.user', this.user);
 
+        if (!this.user.homePhone === undefined && !this.user.cellPhone === undefined) {
+            if (this.user.homePhone === '' && this.user.cellPhone === '') {
+                this.errorsMessage = 'At last one telephone number is required';
+            }
+        } else {
             this.usersService.addUpdateUser(this.user);
             this.successMessage = 'User saved successfully!';
-        // }
+        }
     }
 }

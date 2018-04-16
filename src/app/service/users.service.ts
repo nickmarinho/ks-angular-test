@@ -6,15 +6,18 @@ export class UsersService {
   constructor() { }
 
   public getUsers() {
-    return sessionStorage.getItem('users') ? sessionStorage.getItem('users') : [];
+    return JSON.stringify(sessionStorage.getItem('users'));
   }
 
   public addUpdateUser (user) {
-    return sessionStorage.setItem('users', user);
+    const users = JSON.parse(sessionStorage.getItem('users')) ? JSON.parse(sessionStorage.getItem('users')) : [];
+    users.push(user);
+
+    return sessionStorage.setItem('users', JSON.stringify(users));
   }
 
   public delUser(user) {
-    sessionStorage.removeItem(user);
+    return sessionStorage.removeItem(user);
   }
 
 }

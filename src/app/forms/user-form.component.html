@@ -1,32 +1,33 @@
+<h2>Add a new user in the form bellow:</h2>
 <form class="form-horizontal" [formGroup]="userForm" novalidate>
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Name</label>
         <div class="col-sm-6">
-            <input type="text" id="name" class="form-control" [(ngModel)]="user.name" />
+            <input type="text" id="name" name="name" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name" />
         </div>
     </div>
     <div class="form-group">
         <label for="email" class="col-sm-3 control-label">Email</label>
         <div class="col-sm-6">
-            <input type="text" id="email" class="form-control" [(ngModel)]="user.email" />
+            <input type="text" id="email" name="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.email" />
         </div>
     </div>
     <div class="form-group">
         <label for="homePhone" class="col-sm-3 control-label">Home Phone</label>
         <div class="col-sm-6">
-            <input type="text" id="homePhone" class="form-control" [(ngModel)]="user.homePhone" />
+            <input type="text" id="homePhone" name="homePhone" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.homePhone" />
         </div>
     </div>
     <div class="form-group">
         <label for="cellPhone" class="col-sm-3 control-label">Cell Phone</label>
         <div class="col-sm-6">
-            <input type="text" id="cellPhone" class="form-control" [(ngModel)]="user.cellPhone" />
+            <input type="text" id="cellPhone" name="cellPhone" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.cellPhone" />
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="col-sm-3 control-label">Password</label>
         <div class="col-sm-6">
-            <input type="text" id="password" class="form-control" [(ngModel)]="user.password" />
+            <input type="text" id="password" name="password" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.password" />
         </div>
     </div>
 

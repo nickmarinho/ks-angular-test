@@ -12,5 +12,9 @@ import { Users } from './model/users.model';
 export class AppComponent {
   constructor(private usersService: UsersService) { }
 
-  users = this.usersService.getUsers();
+  users = JSON.parse(
+    JSON.parse(
+      this.usersService.getUsers()
+    )
+  );
 }
