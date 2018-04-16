@@ -2,9 +2,9 @@
 Angular 4 test to Keep It Simple
 
 # TO RUN:
-$ git clone in this project
-$ npm install
-$ ng server --aot
+## $ git clone https://github.com/nickmarinho/ks-angular-test.git
+## $ npm install
+## $ ng server --aot
 
 # KsAngularTest
 
