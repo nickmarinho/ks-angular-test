@@ -7,11 +7,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { UsersService } from './service/users.service';
 import { UserFormComponent } from './forms/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserListComponent } from './lists/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
