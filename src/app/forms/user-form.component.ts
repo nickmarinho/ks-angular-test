@@ -37,11 +37,13 @@ export class UserFormComponent implements OnInit {
     }
 
     public saveUser() {
-        if (this.user.homePhone === '' && this.user.cellPhone === '') {
-            this.errorsMessage = 'At last one telephone number is required';
-        } else {
+        // if (this.user.homePhone === '' && this.user.cellPhone === '') {
+        //     this.errorsMessage = 'At last one telephone number is required';
+        // } else {
+            console.log('this.user', this.user);
+
             this.usersService.addUpdateUser(this.user);
             this.successMessage = 'User saved successfully!';
-        }
+        // }
     }
 }

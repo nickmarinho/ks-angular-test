@@ -7,9 +7,9 @@ export class UsersService {
 
   public getUsers() {
     return sessionStorage.getItem('users') ? sessionStorage.getItem('users') : [];
-   }
+  }
 
-   public addUpdateUser (user) {
+  public addUpdateUser (user) {
     return sessionStorage.setItem('users', user);
   }
 

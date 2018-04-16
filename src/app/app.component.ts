@@ -13,5 +13,4 @@ export class AppComponent {
   constructor(private usersService: UsersService) { }
 
   users = this.usersService.getUsers();
-  user = new Users();
 }
