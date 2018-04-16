@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { UsersService } from './service/users.service';
 import { UserFormComponent } from './forms/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './lists/user-list.component';
+import { DataTableModule } from 'angular-2-data-table';
 
 @NgModule({
   declarations: [
@@ -19,11 +17,9 @@ import { UserListComponent } from './lists/user-list.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    DataTableModule
   ],
-  exports: [BsDropdownModule, TooltipModule, ModalModule],
+  exports: [],
   providers: [
     UsersService
   ],
