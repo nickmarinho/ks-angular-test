@@ -1,6 +1,11 @@
 # ks-angular-test
 Angular 4 test to Keep It Simple
 
+# TO RUN:
+$ git clone in this project
+$ npm install
+$ ng server --aot
+
 # KsAngularTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
