@@ -11,7 +11,6 @@ export class UserListComponent implements OnInit, OnChanges {
   constructor(private usersService: UsersService) { }
 
   users;
-  usersCount: number;
 
   ngOnInit() {
     this.users = JSON.parse(
@@ -19,8 +18,6 @@ export class UserListComponent implements OnInit, OnChanges {
         this.usersService.getUsers()
       )
     );
-
-    this.usersCount = this.users.length;
   }
 
   ngOnChanges() {
@@ -29,8 +26,10 @@ export class UserListComponent implements OnInit, OnChanges {
         this.usersService.getUsers()
       )
     );
+  }
 
-    this.usersCount = this.users.length;
+  deleteUser(user) {
+    this.usersService.delUser(user);
   }
 
 }

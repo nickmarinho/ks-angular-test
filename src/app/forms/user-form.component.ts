@@ -38,8 +38,6 @@ export class UserFormComponent implements OnInit {
     }
 
     public saveUser() {
-        console.log('this.user', this.user);
-
         if (!this.user.homePhone === undefined && !this.user.cellPhone === undefined) {
             if (this.user.homePhone === '' && this.user.cellPhone === '') {
                 this.errorsMessage = 'At last one telephone number is required';

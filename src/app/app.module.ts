@@ -5,7 +5,6 @@ import { UsersService } from './service/users.service';
 import { UserFormComponent } from './forms/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './lists/user-list.component';
-import { DataTableModule } from 'angular-2-data-table';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { DataTableModule } from 'angular-2-data-table';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
-    DataTableModule
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [

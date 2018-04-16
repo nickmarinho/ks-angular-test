@@ -1,4 +1,4 @@
-<h2>Add a new user in the form bellow:</h2>
+<h2 class="text-center">Add a new user in the form bellow:</h2>
 <form class="form-horizontal" [formGroup]="userForm" novalidate>
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Name</label>
@@ -38,6 +38,6 @@
         <p class="error"><strong>Error: </strong>{{ errorsMessage }}</p>
     </ng-container>
 
-    <input type="submit" value="Save" class="btn btn-primary col-sm-offset-3"  (click)="saveUser()" />
-    <input type="reset" value="Reset" (click)="resetForm()" />
+    <input type="submit" value="Save" class="btn btn-primary"  (click)="saveUser()" />
+    <input type="reset" value="Reset" class="btn" (click)="resetForm()" />
 </form>

@@ -1,45 +1,31 @@
-<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
-    <data-table id="persons-grid"
-        headerTitle="Users"
-        [items]="users"
-        [itemCount]="usersCount"
-        >
-        <data-table-column
-            [property]="'name'"
-            [header]="'Name'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'email'"
-            [header]="'Email'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            property="homePhone"
-            header="Home Phone"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            property="cellPhone"
-            header="Cell Phone"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="100"
-            [resizable]="true">
-            <template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </template>
-            <template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
-                <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
-                </span>
-            </template>
-        </data-table-column>
-    </data-table>
-</div>
+<h2 class="text-center">User List</h2>
+
+<ng-container *ngIf="users">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Home Phone</th>
+                    <th>Cell Phone</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.homePhone}}</td>
+                    <td>{{user.cellPhone}}</td>
+                    <td>{{user.password}}</td>
+                    <td><input type="button" value="Remover" class="btn btn-link" (click)="deleteUser(user)" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="!users">
+    <h3 class="text-center">No users to show!</h3>
+</ng-container>

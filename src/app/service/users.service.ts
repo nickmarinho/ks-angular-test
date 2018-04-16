@@ -17,7 +17,16 @@ export class UsersService {
   }
 
   public delUser(user) {
-    return sessionStorage.removeItem(user);
+    const users = JSON.parse(sessionStorage.getItem('users')) ? JSON.parse(sessionStorage.getItem('users')) : [];
+    const index: number = users.indexOf(user);
+
+    if (index !== -1) {
+      users.splice(index, 1);
+    }
+
+    sessionStorage.removeItem('user');
+
+    return sessionStorage.setItem('users', JSON.stringify(users));
   }
 
 }
