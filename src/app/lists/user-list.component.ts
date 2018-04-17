@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit, OnChanges {
       JSON.parse(
         this.usersService.getUsers()
       )
-    ).sort(function compare(a, b) {
+    ).sort((a, b) => {
         if (a[sortKey] < b[sortKey]) {
           return -1;
         }
