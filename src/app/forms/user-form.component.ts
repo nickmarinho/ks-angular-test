@@ -1,5 +1,5 @@
 import { UsersService } from '../service/users.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Users } from '../model/users.model';
 import { FormGroup, Validators, FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -9,13 +9,14 @@ import { FormGroup, Validators, FormBuilder, FormControl, FormsModule, ReactiveF
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-    user: Users;
     userForm: FormGroup;
     errorsMessage: string;
     successMessage: string;
 
+    @Input()
+        user: Users;
     @Output()
-    updateUserListEmitter: EventEmitter<string> = new EventEmitter();
+        updateUserListEmitter: EventEmitter<string> = new EventEmitter();
 
     constructor(
         private usersService: UsersService,
@@ -48,9 +49,7 @@ export class UserFormComponent implements OnInit {
     }
 
     public saveUser() {
-        if (this.checkUserDataError()) {
-            this.errorsMessage = 'At last one telephone number is required';
-        } else {
+        if (!this.checkUserDataError()) {
             this.usersService.addUpdateUser(this.user);
             this.successMessage = 'User saved successfully!';
             this.updateUserListEmitter.emit();
@@ -60,11 +59,29 @@ export class UserFormComponent implements OnInit {
 
     public checkUserDataError() {
         let errors = 0;
+        this.errorsMessage = '';
 
-        if (this.user.homePhone === undefined && this.user.cellPhone === undefined) {
+        if (this.user.name === undefined || this.user.name === '') {
             errors++;
-        } else if (this.user.homePhone === '' && this.user.cellPhone === '') {
+            this.errorsMessage = 'The name is required';
+        }
+
+        if (this.user.email === undefined || this.user.email === '') {
             errors++;
+            this.errorsMessage = 'The email is required';
+        }
+
+        if (this.user.password === undefined || this.user.password === '') {
+            errors++;
+            this.errorsMessage = 'The password is required';
+        }
+
+        if (
+            (this.user.homePhone === undefined || this.user.homePhone === '') &&
+            (this.user.cellPhone === undefined || this.user.cellPhone === '')
+        ) {
+            errors++;
+            this.errorsMessage = 'At least one telephone number is required';
         }
 
         return errors;

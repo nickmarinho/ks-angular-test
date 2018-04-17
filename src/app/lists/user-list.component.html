@@ -1,6 +1,6 @@
 <h2 class="text-center">User List</h2>
 
-<ng-container *ngIf="users">
+<ng-container *ngIf="users.length">
     <div class="container">
         <table class="table table-hover">
             <thead>
@@ -20,12 +20,15 @@
                     <td>{{user.homePhone}}</td>
                     <td>{{user.cellPhone}}</td>
                     <td>{{user.password}}</td>
-                    <td><input type="button" value="Remover" class="btn btn-link" (click)="deleteUser(user)" /></td>
+                    <td>
+                        <input type="button" value="Editar" class="btn btn-link" (click)="editUser(user)" />
+                        <input type="button" value="Remover" class="btn btn-link" (click)="deleteUser(user)" />
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </ng-container>
-<ng-container *ngIf="!users">
+<ng-container *ngIf="!users.length">
     <h3 class="text-center">No users to show!</h3>
 </ng-container>

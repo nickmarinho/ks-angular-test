@@ -1,2 +1,2 @@
-<app-user-form (updateUserListEmitter)="updateUserList($event)"></app-user-form>
-<app-user-list [users]="users"></app-user-list>
+<app-user-form [user]="user" (updateUserListEmitter)="updateUserList($event)"></app-user-form>
+<app-user-list [users]="users" (updateUserListEmitter)="updateUserList($event)" (editUserEmitter)="editUser($event)"></app-user-list>

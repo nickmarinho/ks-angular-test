@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { UsersService } from './../service/users.service';
 import { Users } from './../model/users.model';
 
@@ -10,8 +10,16 @@ import { Users } from './../model/users.model';
 export class UserListComponent implements OnInit, OnChanges {
   constructor(private usersService: UsersService) { }
 
+  user: Users;
+
   @Input()
     users: Users;
+
+  @Output()
+    editUserEmitter: EventEmitter<string> = new EventEmitter();
+
+  @Output()
+    updateUserListEmitter: EventEmitter<string> = new EventEmitter();
 
   ngOnInit() {
     this.users = JSON.parse(
@@ -29,8 +37,13 @@ export class UserListComponent implements OnInit, OnChanges {
     );
   }
 
+  editUser(user) {
+    this.editUserEmitter.emit(user);
+  }
+
   deleteUser(user) {
     this.usersService.delUser(user);
+    this.updateUserListEmitter.emit();
   }
 
 }

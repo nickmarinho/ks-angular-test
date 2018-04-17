@@ -10,9 +10,14 @@ import { UsersService } from './service/users.service';
 export class AppComponent {
   constructor(private usersService: UsersService) { }
 
+  user: Users;
   users: Users;
 
-  updateUserList(users) {
+  public editUser(user) {
+    this.user = user;
+  }
+
+  public updateUserList(users) {
     this.users = JSON.parse(
       JSON.parse(
         this.usersService.getUsers()
