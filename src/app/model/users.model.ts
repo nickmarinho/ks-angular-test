@@ -8,4 +8,6 @@ export class Users {
     cellPhone: string;
 
     password: string;
+
+    length: number;
 }
