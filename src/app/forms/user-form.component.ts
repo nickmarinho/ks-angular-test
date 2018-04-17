@@ -61,16 +61,6 @@ export class UserFormComponent implements OnInit {
         let errors = 0;
         this.errorsMessage = '';
 
-        if (this.user.name === undefined || this.user.name === '') {
-            errors++;
-            this.errorsMessage = 'The name is required';
-        }
-
-        if (this.user.email === undefined || this.user.email === '') {
-            errors++;
-            this.errorsMessage = 'The email is required';
-        }
-
         if (this.user.password === undefined || this.user.password === '') {
             errors++;
             this.errorsMessage = 'The password is required';
@@ -82,6 +72,16 @@ export class UserFormComponent implements OnInit {
         ) {
             errors++;
             this.errorsMessage = 'At least one telephone number is required';
+        }
+
+        if (this.user.email === undefined || this.user.email === '') {
+            errors++;
+            this.errorsMessage = 'The email is required';
+        }
+
+        if (this.user.name === undefined || this.user.name === '') {
+            errors++;
+            this.errorsMessage = 'The name is required';
         }
 
         return errors;
