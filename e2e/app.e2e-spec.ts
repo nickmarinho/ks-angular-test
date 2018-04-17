@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ks-angular-test1 App', () => {
+describe('ks-angular-test App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('ks-angular-test1 App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('User List');
   });
 });
