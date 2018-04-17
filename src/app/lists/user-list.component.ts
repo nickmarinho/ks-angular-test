@@ -29,6 +29,28 @@ export class UserListComponent implements OnInit, OnChanges {
     this.loadUsers();
   }
 
+  public sortUserList(sortKey) {
+    this.users = JSON.parse(
+      JSON.parse(
+        this.usersService.getUsers()
+      )
+    ).sort(function compare(a, b) {
+        if (a[sortKey] < b[sortKey]) {
+          return -1;
+        }
+
+        if (a[sortKey] > b[sortKey]) {
+          return 1;
+        }
+
+        return 0;
+    });
+
+    if (this.users === null) {
+      this.users = new Users();
+    }
+  }
+
   public loadUsers() {
     this.users = JSON.parse(
       JSON.parse(

@@ -1,35 +1,20 @@
 <h2 class="text-center">Add a new user:</h2>
 <form class="form-horizontal" [formGroup]="userForm" novalidate>
-    <div class="form-group">
-        <label for="name" class="col-sm-3 control-label">Name</label>
-        <div class="col-sm-6">
-            <input type="text" id="name" name="name" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name" required />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="email" class="col-sm-3 control-label">Email</label>
-        <div class="col-sm-6">
-            <input type="text" id="email" name="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.email" required />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="homePhone" class="col-sm-3 control-label">Home Phone</label>
-        <div class="col-sm-6">
-            <input type="text" id="homePhone" name="homePhone" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.homePhone" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="cellPhone" class="col-sm-3 control-label">Cell Phone</label>
-        <div class="col-sm-6">
-            <input type="text" id="cellPhone" name="cellPhone" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.cellPhone" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password" class="col-sm-3 control-label">Password</label>
-        <div class="col-sm-6">
-            <input type="text" id="password" name="password" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.password" required />
-        </div>
-    </div>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Name" type="text" id="name" name="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name" required />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Email" type="text" id="email" name="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.email" required />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Home Phone" type="text" id="homePhone" name="homePhone" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.homePhone" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Cell Phone" type="text" id="cellPhone" name="cellPhone" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.cellPhone" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Password" type="text" id="password" name="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.password" required />
+    </mat-form-field>
 
     <ng-container *ngIf="successMessage">
         <p class="successMessage"><strong>{{ successMessage }}</strong></p>
