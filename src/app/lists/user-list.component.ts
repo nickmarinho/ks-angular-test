@@ -22,19 +22,23 @@ export class UserListComponent implements OnInit, OnChanges {
     updateUserListEmitter: EventEmitter<string> = new EventEmitter();
 
   ngOnInit() {
-    this.users = JSON.parse(
-      JSON.parse(
-        this.usersService.getUsers()
-      )
-    );
+    this.loadUsers();
   }
 
   ngOnChanges() {
+    this.loadUsers();
+  }
+
+  public loadUsers() {
     this.users = JSON.parse(
       JSON.parse(
         this.usersService.getUsers()
       )
     );
+
+    if (this.users === null) {
+      this.users = new Users();
+    }
   }
 
   editUser(user) {
