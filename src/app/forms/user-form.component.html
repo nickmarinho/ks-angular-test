@@ -3,6 +3,13 @@
     <mat-form-field class="full-width">
         <input matInput placeholder="Name" type="text" id="name" name="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name" required />
     </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Gender" id="gender" gender="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.gender">
+            <mat-option *ngFor="let g of gender" [value]="g.value">
+                {{ g.value }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
     <mat-form-field class="full-width">
         <input matInput placeholder="Email" type="text" id="email" name="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.email" required />
     </mat-form-field>

@@ -1,6 +1,8 @@
 export class Users {
     name: string;
 
+    gender: string;
+
     email: string;
 
     homePhone: string;

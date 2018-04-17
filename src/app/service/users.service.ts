@@ -44,4 +44,11 @@ export class UsersService {
     sessionStorage.clear();
   }
 
+  public getGender() {
+    return [
+      {value: 'Female'},
+      {value: 'Male'}
+    ];
+  }
+
 }

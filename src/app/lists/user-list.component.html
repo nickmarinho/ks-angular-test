@@ -6,6 +6,7 @@
             <thead>
                 <tr>
                     <th class="sortable-hover" (click)="sortUserList('name')">Name</th>
+                    <th class="sortable-hover" (click)="sortUserList('gender')">Gender</th>
                     <th class="sortable-hover" (click)="sortUserList('email')">Email</th>
                     <th class="sortable-hover" (click)="sortUserList('homePhone')">Home Phone</th>
                     <th class="sortable-hover" (click)="sortUserList('cellPhone')">Cell Phone</th>
@@ -16,6 +17,7 @@
             <tbody>
                 <tr *ngFor="let user of users; let i = index">
                     <td>{{user.name}}</td>
+                    <td>{{user.gender}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.homePhone}}</td>
                     <td>{{user.cellPhone}}</td>

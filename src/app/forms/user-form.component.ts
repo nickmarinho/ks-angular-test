@@ -1,7 +1,7 @@
 import { UsersService } from '../service/users.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Users } from '../model/users.model';
 import { FormGroup, Validators, FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Users } from '../model/users.model';
 
 @Component({
   selector: 'app-user-form',
@@ -12,6 +12,7 @@ export class UserFormComponent implements OnInit {
     userForm: FormGroup;
     errorsMessage: string;
     successMessage: string;
+    gender;
 
     @Input()
         user: Users;
@@ -25,12 +26,14 @@ export class UserFormComponent implements OnInit {
 
     ngOnInit() {
         this.criarFormGroup();
+        this.gender = this.usersService.getGender();
     }
 
     private criarFormGroup() {
         this.user = new Users();
         this.userForm = this.formBuilder.group({});
         this.userForm.addControl('name', new FormControl('', Validators.required));
+        this.userForm.addControl('gender', new FormControl('', Validators.required));
         this.userForm.addControl('email', new FormControl('', Validators.required));
         this.userForm.addControl('homePhone', new FormControl('', null));
         this.userForm.addControl('cellPhone', new FormControl('', null));

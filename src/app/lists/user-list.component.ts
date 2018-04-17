@@ -11,6 +11,7 @@ export class UserListComponent implements OnInit, OnChanges {
   constructor(private usersService: UsersService) { }
 
   user: Users;
+  gender;
 
   @Input()
     users: Users;
@@ -23,6 +24,7 @@ export class UserListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.loadUsers();
+    this.gender = this.usersService.getGender();
   }
 
   ngOnChanges() {

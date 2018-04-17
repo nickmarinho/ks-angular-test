@@ -6,7 +6,7 @@ import { UsersService } from './service/users.service';
 import { UserFormComponent } from './forms/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './lists/user-list.component';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatSelectModule, MatOptionModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   exports: [],
   providers: [
